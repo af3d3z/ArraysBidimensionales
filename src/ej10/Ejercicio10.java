@@ -27,21 +27,22 @@ public class Ejercicio10 {
     }
 
     public static int[][] transposicion(int[][] array) {
-        int[][] arrayTranspuesto = new int[array[0].length][array.length];
-
         for(int i = 0; i < array[0].length; i++) {
-            for(int j = 0; j < array.length; j++) {
-                arrayTranspuesto[i][j] = array[j][i];
+            for(int j = i; j < array.length; j++) {
+                if(i != j) {
+                    int temp = array[i][j];
+                    array[i][j] = array[j][i];
+                    array[j][i] = temp;
+                }
             }
         }
-
-        return arrayTranspuesto;
+        return array;
     }
 
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(rotate(new int[] {1, 2, 3, 4, 5})));
-        System.out.println(Arrays.deepToString(gira90(new int[][] {{1, 2, 3}, {5, 6, 7}})));
+        System.out.println(Arrays.deepToString(gira90(new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})));
     }
 
 }
